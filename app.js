@@ -7,6 +7,7 @@ const express = require("express");
 // requiring body parser
 const bodyParser = require("body-parser");
 
+
 const app = express();
 
 // requiring files in  routes folder
@@ -17,6 +18,7 @@ const shopRoutes = require("./routes/shop")
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // adding middle-wares -ROUTES
 app.use("/admin", adminRoutes)
