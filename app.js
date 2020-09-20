@@ -6,23 +6,18 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// requiring files in  routes folder
+const adminRoutes = require("./routes/admin")
+const shopRoutes = require("./routes/shop")
+
 // body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
-app.get("/add-product", (req, res, next) => {
-  res.send(`<form action='products' method='POST'>
-    <input type='text' name='title'/>
-    <button type='submit'>Add</button>
-</form>`);
-});
+// adding middle-wares -ROUTES
+app.use(adminRoutes)
+app.use(shopRoutes)
 
-app.post("/products", (req, res, next) => {
-  console.log(req.body.title);
-  res.redirect("/");
-});
-
-app.get("/", (req, res, next) => {
-  res.send("<h1>Home Page</h1>");
-});
 
 app.listen(3000, () => console.log(`Server stared at port : 3000`));
