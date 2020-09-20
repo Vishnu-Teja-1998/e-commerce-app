@@ -1,3 +1,6 @@
+// requiring path module
+const path = require("path")
+
 // requiring express module
 const express = require("express")
 
@@ -5,10 +8,7 @@ const express = require("express")
 const router = express.Router()
 
 router.get("/add-product", (req, res, next) => {
-    res.send(`<form action='products' method='POST'>
-    <input type='text' name='title'/>
-    <button type='submit'>Add</button>
-</form>`);
+    res.sendFile(path.join(__dirname, "../", "views", "add-product.html"))
 });
 
 router.post("/products", (req, res, next) => {
