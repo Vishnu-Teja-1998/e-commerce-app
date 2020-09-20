@@ -16,8 +16,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 // adding middle-wares -ROUTES
-app.use(adminRoutes)
+app.use("/admin", adminRoutes)
 app.use(shopRoutes)
 
+app.use((req, res, next) => {
+    res.send(`<h1>Page not found</h1>`)
+})
 
 app.listen(3000, () => console.log(`Server stared at port : 3000`));

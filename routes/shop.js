@@ -8,5 +8,5 @@ router.get("/", (req, res, next) => {
     res.send("<h1>Home Page</h1>");
 });
 
-
+// exporting router
 module.exports = router
