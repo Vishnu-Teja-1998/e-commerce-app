@@ -21,13 +21,8 @@ app.use(shopRoutes);
 
 app.use((req, res, next) => {
   res.render("404", {
-<<<<<<< HEAD
     pageTitle: "Page not Found",
-  });
-=======
-    pageTitle: "Page not Found"
   })
->>>>>>> dynamic_rendering
 });
 
 app.listen(3000, function () {
