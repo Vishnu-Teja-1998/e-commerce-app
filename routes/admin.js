@@ -3,6 +3,8 @@ const express = require("express")
 
 const router = express.Router()
 
+const products = []
+
 router.get("/add-product", (req, res, next) => {
     res.render("add-product", {
         pageTitle: "Add Products"
@@ -10,8 +12,11 @@ router.get("/add-product", (req, res, next) => {
 })
 
 router.post("/add-product", (req, res, next) => {
-    console.log(req.body.title);
+    products.push({
+        title: req.body.title
+    })
+    console.log(products);
     res.redirect("/")
 })
-
-module.exports = router;
+exports.products = products
+exports.routes = router
