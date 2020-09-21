@@ -12,12 +12,15 @@ app.use(
   })
 );
 app.use(express.static("public"));
+app.set("view engine", "ejs")
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "views", "404.html"));
+  res.render("404", {
+    pageTitle: "Page not Found"
+  })
 });
 
 app.listen(3000, function () {
