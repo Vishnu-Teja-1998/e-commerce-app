@@ -14,14 +14,20 @@ app.use(
   })
 );
 app.use(express.static("public"));
+app.set("view engine", "ejs")
 
 app.use("/admin", adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
   res.render("404", {
+<<<<<<< HEAD
     pageTitle: "Page not Found",
   });
+=======
+    pageTitle: "Page not Found"
+  })
+>>>>>>> dynamic_rendering
 });
 
 app.listen(3000, function () {

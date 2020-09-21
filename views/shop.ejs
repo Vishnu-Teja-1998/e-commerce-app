@@ -4,7 +4,11 @@
 
 
 <main>
+<<<<<<< HEAD
     <% if(prods.length > 0){ %>
+=======
+    <% if(prods.length>0){ %>
+>>>>>>> dynamic_rendering
     <div class="grid">
         <% for(let product of prods){ %>
         <article class="card product-item">
@@ -27,10 +31,17 @@
         <% } %>
 
     </div>
+<<<<<<< HEAD
     <% } else{ %>
-    <h1>No Products Found</h1>
+    <h1>No Products Found!</h1>
     <% } %>
 
 
+=======
+    <% }else{ %>
+    <h1>No products Found!</h1>
+    <% } %>
+
+>>>>>>> dynamic_rendering
 </main>
 <%- include('includes/end.ejs'); -%>

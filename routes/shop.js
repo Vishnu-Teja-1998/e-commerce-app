@@ -3,6 +3,7 @@ const express = require("express")
 const adminData = require("./admin")
 
 const router = express.Router()
+const adminData = require("./admin")
 
 router.get("/", (req, res, next) => {
     const product = adminData.products
