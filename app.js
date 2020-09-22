@@ -5,6 +5,7 @@ const ejs = require("ejs");
 
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
+const errorController = require("./controllers/404")
 const app = express();
 
 app.set("view engine", "ejs");
@@ -19,11 +20,7 @@ app.set("view engine", "ejs")
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-  res.render("404", {
-    pageTitle: "Page not Found",
-  })
-});
+app.use(errorController.getError);
 
 app.listen(3000, function () {
   console.log(`server started at port : 3000`);

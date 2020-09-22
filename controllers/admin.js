@@ -1,8 +1,9 @@
 const products = []
 
 exports.getAddProduct = (req, res, next) => {
-    res.render("add-product", {
-        pageTitle: "Add Products"
+    res.render("admin/add-product", {
+        pageTitle: "Add Products",
+        path: "/admin/add-product"
     })
 }
 
@@ -14,8 +15,9 @@ exports.postAddProduct = (req, res, next) => {
     res.redirect("/");
 }
 exports.getProducts = (req, res, next) => {
-    res.render("shop", {
+    res.render("shop/product-list", {
         pageTitle: "Shop",
         prods: products,
+        path: "/"
     });
 }
