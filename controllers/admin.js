@@ -8,14 +8,14 @@ exports.getAddProduct = (req, res, next) => {
 
 exports.postAddProduct = (req, res, next) => {
     products.push({
-        title: req.body.title
-    })
-    res.redirect("/")
+        title: req.body.title,
+    });
+    console.log(products);
+    res.redirect("/");
 }
-
-exports.getProduct = (req, res, next) => {
+exports.getProducts = (req, res, next) => {
     res.render("shop", {
         pageTitle: "Shop",
-        prods: products
-    })
+        prods: products,
+    });
 }

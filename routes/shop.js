@@ -1,10 +1,9 @@
-const path = require("path")
-const express = require("express")
-const adminRoutes = require("./admin")
-const adminController = require("../controllers/admin")
+const express = require("express");
 
-const router = express.Router()
+const adminContrroller = require("../controllers/admin");
 
-router.get("/", adminController.getProduct)
+const router = express.Router();
+
+router.get("/", adminContrroller.getProducts);
 
 module.exports = router;
