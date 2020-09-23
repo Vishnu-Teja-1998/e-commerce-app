@@ -13,6 +13,13 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+mongoose.connect(
+  "mongodb+srv://admin-vishnu:vishnu123@vishnu-1nuon.mongodb.net/shopDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+mongoose.set("useCreateIndex", true);
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -24,13 +31,6 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-mongoose.connect(
-  "mongodb+srv://admin-vishnu:vishnu123@vishnu-1nuon.mongodb.net/shopDB", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-).then(result => {
-  app.listen(3000, function () {
-    console.log(`server started on port 3000`);
-  })
-}).catch(err => console.log(err));
+app.listen(3000, () => {
+  console.log(`server started on port : 3000`);
+})
