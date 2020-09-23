@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require("mongoose")
 
 const errorController = require('./controllers/error');
 
@@ -23,6 +24,13 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000, function () {
-  console.log(`server started on port : 3000`);
-});
+mongoose.connect(
+  "mongodb+srv://admin-vishnu:vishnu123@vishnu-1nuon.mongodb.net/shopDB", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+).then(result => {
+  app.listen(3000, function () {
+    console.log(`server started on port 3000`);
+  })
+}).catch(err => console.log(err));
