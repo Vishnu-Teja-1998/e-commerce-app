@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 
-const productSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const productSchema = Schema({
     title: {
         type: String,
         requried: true,
@@ -16,6 +18,11 @@ const productSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         required: true,
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     }
 });
 
